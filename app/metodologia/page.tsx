@@ -34,7 +34,7 @@ export default function MetodologiaPage() {
           {/* ==========================================
               COLUMNA IZQ (40%): md:col-span-2. 
               ========================================== */}
-          <div className="md:col-span-2 relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden rounded-sm md:sticky md:top-24">
+          <div className="md:col-span-2 relative w-full aspect-4/5 bg-neutral-900 overflow-hidden rounded-sm md:sticky md:top-24">
             {carouselImages.map((src, index) => (
               <Image
                 key={src}

@@ -40,79 +40,42 @@ export default function Navbar() {
 
   return (
     <>
-      {/* NAVBAR: Reducido a h-16 y con Grid de 3 columnas para centrado perfecto */}
-      <nav className="bg-neutral-950 text-neutral-400 font-inter tracking-widest uppercase font-light text-sm h-16 border-b border-neutral-900 w-full sticky top-0 z-50 grid grid-cols-3 items-center px-8 md:px-16">
+      {/* NAVBAR: Fondo blanco semitransparente, letras negras */}
+      <nav className="bg-white/80 backdrop-blur-md text-neutral-900 font-inter tracking-widest uppercase font-bold text-sm h-16 w-full sticky top-0 z-50 grid grid-cols-3 items-center px-8 md:px-16 lg:px-30 rounded-2xl shadow-sm md:rounded-none md:shadow-none mb-8">
         
-        {/* Columna 1: Botón hamburguesa */}
         <div className="flex justify-start">
-          <button
-            aria-label="Menu"
-            aria-expanded={open}
-            aria-controls="site-menu"
-            onClick={() => setOpen(true)}
-            className="hover:text-white transition-colors duration-300 flex items-center justify-center p-2 -ml-2"
-            type="button"
-          >
-            <span className="material-symbols-outlined" data-icon="menu">
-              menu
-            </span>
+          <button aria-label="Menu" onClick={() => setOpen(true)} className="hover:text-neutral-500 transition-colors duration-300 flex items-center justify-center p-2 -ml-2" type="button">
+            <span className="material-symbols-outlined" data-icon="menu">menu</span>
           </button>
         </div>
 
-        {/* Columna 2: Logo centrado (SIN clases absolute) */}
         <div className="flex justify-center">
-          <Link 
-            href="/" 
-            className="text-xl md:text-2xl font-medium tracking-tighter text-white uppercase hover:text-neutral-300 transition-colors duration-300 focus:outline-none whitespace-nowrap"
-          >
+          <Link href="/" className="text-xl md:text-2xl font-black tracking-tighter text-neutral-900 uppercase hover:text-neutral-600 transition-colors duration-300 focus:outline-none whitespace-nowrap">
             GIACO TATTOO
           </Link>
         </div>
 
-        {/* Columna 3: CTA derecho */}
         <div className="flex justify-end">
-          <button className="hover:text-white transition-colors duration-300 hidden md:block">
+          <button className="hover:text-neutral-500 transition-colors duration-300 hidden md:block">
             BOOK APPOINTMENT
           </button>
         </div>
       </nav>
 
-      {/* MENÚ DESPLEGABLE (Hamburguesa) */}
+      {/* MENÚ DESPLEGABLE (Hamburguesa) - Lo pasamos a fondo blanco también */}
       {open ? (
-        <div className="fixed inset-0 z-60">
-          <button
-            type="button"
-            aria-label="Cerrar menú"
-            onClick={() => setOpen(false)}
-            className="absolute inset-0 bg-black/60"
-          />
-
-          <aside
-            id="site-menu"
-            className="absolute left-0 top-0 h-full w-[320px] max-w-[85vw] bg-neutral-950 border-r border-neutral-900 px-6 py-6 flex flex-col gap-4"
-          >
+        <div className="fixed inset-0 z-[60]">
+          <button type="button" aria-label="Cerrar menú" onClick={() => setOpen(false)} className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+          <aside className="absolute left-0 top-0 h-full w-[320px] max-w-[85vw] bg-white border-r border-neutral-200 px-6 py-6 flex flex-col gap-4 shadow-2xl">
             <div className="flex items-center justify-between">
-              <div className="text-white font-medium tracking-widest uppercase">
-                Menú
-              </div>
-              <button
-                type="button"
-                aria-label="Cerrar"
-                onClick={() => setOpen(false)}
-                className="text-neutral-400 hover:text-white transition-colors duration-300 p-2 -mr-2"
-              >
+              <div className="text-neutral-900 font-bold tracking-widest uppercase">Menú</div>
+              <button type="button" onClick={() => setOpen(false)} className="text-neutral-500 hover:text-neutral-900 transition-colors duration-300 p-2 -mr-2">
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-
             <nav className="mt-2 flex flex-col gap-2">
               {items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="text-neutral-300 hover:text-white transition-colors duration-300 py-2"
-                >
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="text-neutral-600 font-medium hover:text-neutral-900 transition-colors duration-300 py-2">
                   {item.label}
                 </Link>
               ))}
@@ -121,5 +84,5 @@ export default function Navbar() {
         </div>
       ) : null}
     </>
-  );
+  )
 }

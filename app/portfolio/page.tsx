@@ -11,34 +11,34 @@ const portfolioData = [
 
 export default function PortfolioPage() {
   return (
-    // 1. Cambiamos md:px-8 por md:px-16 para que coincida EXACTO con el Navbar
-    <main className="flex-1 pt-8 pb-16 px-4 md:px-16 flex flex-col items-center">
-      
-      {/* 2. Borramos el max-w-[1000px] para que ocupe todo el espacio disponible respetando el px-16 */}
+    <main className="flex-1 pt-4 pb-16 px-4 md:px-24 lg:px-32 flex flex-col items-center">
       <div className="w-full">
         
-        {/* Este título ahora va a quedar en la misma línea vertical que la hamburguesa */}
-        <h1 className="text-white text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-12 text-center md:text-left">
+        <h1 className="text-neutral-900 text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-12 text-center md:text-left">
           Portfolio
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {portfolioData.map((item) => (
-            <div key={item.id} className="flex flex-col gap-3">
+            <div 
+              key={item.id} 
+              className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+            >
               
-              {/* 3. Ajustamos a md:px-0 para que en PC el texto quede bien al ras de la foto */}
-              <h2 className="text-neutral-300 text-sm md:text-base font-medium uppercase tracking-widest px-4 md:px-0">
-                {item.title}
-              </h2>
-
-              <div className="relative w-full aspect-4/5 bg-neutral-900 overflow-hidden group rounded-sm">
+              <div className="relative w-full aspect-[4/5] bg-neutral-200">
                 <Image 
                   src={item.src} 
                   alt={item.title}
                   fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="object-cover" 
                 />
+              </div>
+
+              <div className="px-5 py-3 flex items-center justify-start border-t border-neutral-100">
+                <h2 className="text-neutral-700 text-sm font-medium">
+                  {item.title}
+                </h2>
               </div>
 
             </div>

@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} dark antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
     >
       <head>
         <link
@@ -39,20 +39,25 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-background text-on-background min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container font-inter">
+      <body className="text-neutral-900 min-h-screen flex flex-col font-inter relative">
         
-        {/* Agregamos pt-6 md:pt-8 para darle aire al Navbar */}
+        {/* FONDO GLOBAL (Capa gris + Capa blanca semitransparente) */}
+        <div className="fixed inset-0 z-[-1]">
+          <div className="absolute inset-0 bg-neutral-300"></div> 
+          <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]"></div>
+        </div>
+
         <div className="w-full max-w-[1084px] mx-auto flex flex-col min-h-screen relative pt-6 md:pt-8">
           
           <Navbar />
 
           <div className="flex-1 flex flex-col">{children}</div>
 
-          <footer className="bg-neutral-950 dark:bg-neutral-950 text-neutral-400 dark:text-neutral-400 font-inter text-[10px] tracking-widest uppercase full-width py-16 border-t border-neutral-900 flat no shadows flex flex-col items-center gap-8 px-8 mt-auto">
+          <footer className="bg-neutral-950 text-neutral-400 font-inter text-[10px] tracking-widest uppercase py-16 flex flex-col items-center gap-8 px-8 mt-auto rounded-t-3xl md:rounded-t-none">
             <div className="flex gap-8">
-              <a className="text-neutral-600 hover:text-white transition-colors duration-300" href="#">EMAIL</a>
-              <a className="text-neutral-600 hover:text-white transition-colors duration-300" href="#">INSTAGRAM</a>
-              <a className="text-neutral-600 hover:text-white transition-colors duration-300" href="#">WHATSAPP</a>
+              <a className="text-neutral-500 hover:text-white transition-colors duration-300" href="#">EMAIL</a>
+              <a className="text-neutral-500 hover:text-white transition-colors duration-300" href="#">INSTAGRAM</a>
+              <a className="text-neutral-500 hover:text-white transition-colors duration-300" href="#">WHATSAPP</a>
             </div>
             <div className="text-neutral-600">
               © GIACO TATTOO. ALL RIGHTS RESERVED.
