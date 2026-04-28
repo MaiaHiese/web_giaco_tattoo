@@ -32,7 +32,7 @@ export default function PortfolioPage() {
                 {item.title}
               </h2>
 
-              <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden group rounded-sm">
+              <div className="relative w-full aspect-4/5 bg-neutral-900 overflow-hidden group rounded-sm">
                 <Image 
                   src={item.src} 
                   alt={item.title}
