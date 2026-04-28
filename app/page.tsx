@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex-1 pt-8 pb-16 px-8 flex flex-col items-center">
       {/* Agrandamos un poco el max-w para que las 3 columnas respiren bien en PC */}
-      <div className="w-full max-w-[800px] mx-auto">
+      <div className="w-full max-w-200 mx-auto">
         
         <div className="bg-white p-px">
           {/* Cambiamos grid-cols-2 a grid-cols-2 md:grid-cols-3 */}
