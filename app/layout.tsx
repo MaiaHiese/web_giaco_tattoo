@@ -41,13 +41,19 @@ export default function RootLayout({
       </head>
       <body className="text-neutral-900 min-h-screen flex flex-col font-inter relative">
         
-        {/* FONDO GLOBAL (Capa gris + Capa blanca semitransparente) */}
+        {/* ==========================================
+            FONDO GLOBAL (Imagen de tinta + Glassmorphism)
+            ========================================== */}
         <div className="fixed inset-0 z-[-1]">
-          <div className="absolute inset-0 bg-neutral-300"></div> 
-          <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]"></div>
-        </div>
+          {/* Imagen de fondo con escala de grises y un poco de transparencia */}
+          <div className="absolute inset-0 bg-[url('/fondotinta.webp')] bg-cover bg-center grayscale opacity-60"></div> 
+          
+          {/* Capa de vidrio esmerilado que difumina la tinta y da el fondo blanco elegante */}
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-[4px]"></div>
+        </div> 
 
-        <div className="w-full max-w-[1084px] mx-auto flex flex-col min-h-screen relative pt-6 md:pt-8">
+        {/* ACÁ ESTÁ EL CAMBIO: Redujimos el padding superior a pt-2 md:pt-3 */}
+        <div className="w-full max-w-271 mx-auto flex flex-col min-h-screen relative pt-2 md:pt-3">
           
           <Navbar />
 
